@@ -1,0 +1,212 @@
+{
+  "creator": "Yosys 0.70+201 (git sha1 0ad867ab5, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "comparator_8bit": {
+      "attributes": {
+        "hdlname": "comparator_8bit",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:4.1-21.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
+        },
+        "GT": {
+          "direction": "output",
+          "bits": [ 18 ]
+        },
+        "EQ": {
+          "direction": "output",
+          "bits": [ 19 ]
+        },
+        "LT": {
+          "direction": "output",
+          "bits": [ 20 ]
+        }
+      },
+      "cells": {
+        "$auto$alumacc.cc:111:get_cf$4241": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:19.18-19.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 21 ],
+            "Y": [ 20 ]
+          }
+        },
+        "$auto$alumacc.cc:578:replace_alu$4238": {
+          "hide_name": 1,
+          "type": "$alu",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:19.18-19.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "BI": "input",
+            "CI": "input",
+            "CO": "output",
+            "X": "output",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "BI": [ "1" ],
+            "CI": [ "1" ],
+            "CO": [ 22, 23, 24, 25, 26, 27, 28, 21 ],
+            "X": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+            "Y": [ 37, 38, 39, 40, 41, 42, 43, 44 ]
+          }
+        },
+        "$auto$alumacc.cc:87:get_gt$4245": {
+          "hide_name": 1,
+          "type": "$or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 20 ],
+            "B": [ 19 ],
+            "Y": [ 45 ]
+          }
+        },
+        "$auto$alumacc.cc:88:get_gt$4247": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:19.18-19.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 45 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$auto$alumacc.cc:97:get_eq$4243": {
+          "hide_name": 1,
+          "type": "$reduce_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:19.18-19.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+            "Y": [ 19 ]
+          }
+        }
+      },
+      "netnames": {
+        "$auto$alumacc.cc:511:extract_cmp_alu$4237": {
+          "hide_name": 1,
+          "bits": [ 37, 38, 39, 40, 41, 42, 43, 44 ],
+          "attributes": {
+          }
+        },
+        "$auto$alumacc.cc:594:replace_alu$4239": {
+          "hide_name": 1,
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+          "attributes": {
+          }
+        },
+        "$auto$alumacc.cc:595:replace_alu$4240": {
+          "hide_name": 1,
+          "bits": [ 22, 23, 24, 25, 26, 27, 28, 21 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3252:Or$4246": {
+          "hide_name": 1,
+          "bits": [ 45 ],
+          "attributes": {
+          }
+        },
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:5.23-5.24"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:6.23-6.24"
+          }
+        },
+        "EQ": {
+          "hide_name": 0,
+          "bits": [ 19 ],
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:8.23-8.25"
+          }
+        },
+        "GT": {
+          "hide_name": 0,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:7.23-7.25"
+          }
+        },
+        "LT": {
+          "hide_name": 0,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "/home/devmgohel/vlsi/OpenROAD-flow-scripts/flow/designs/src/comparator_8bit/comparator_8bit.v:9.23-9.25"
+          }
+        }
+      }
+    }
+  }
+}

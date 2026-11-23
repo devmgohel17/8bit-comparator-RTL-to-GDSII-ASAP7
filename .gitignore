@@ -1,0 +1,23 @@
+# Simulation binaries
+sim/comparator_sim
+
+# Intermediate OpenROAD databases
+results/*.odb
+
+# Intermediate synthesis files
+results/*.rtlil
+
+# Temporary routing files
+results/maze.log
+results/route.guide
+
+# Logs
+logs/*.log
+
+# Keep final reports and JSON metrics
+!logs/6_report.json
+
+# Python / editor files
+__pycache__/
+*.swp
+*~
